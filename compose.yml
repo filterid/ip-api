@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  filterid-ip-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - GIN_MODE=release
+    volumes:
+      - ./templates:/app/templates
+      - ./static:/app/static
+
+  tailwind-builder:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npx tailwindcss -i ./static/css/input.css -o ./static/css/styles.css --minify"

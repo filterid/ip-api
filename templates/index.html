@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your IP Address {{ .ip }}</title>
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+            <h1 class="text-2xl font-bold mb-4">Your IP Address</h1>
+            <p class="text-lg mb-4">IP: <span class="font-mono text-blue-600">{{ .ip }}</span></p>
+            
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold">Endpoints:</h2>
+                <ul class="list-disc ml-4">
+                    <li><a href="/ip/text" class="text-blue-500 underline">Plain Text</a></li>
+                    <li><a href="/ip/json" class="text-blue-500 underline">JSON</a></li>
+                    <li><a href="/ip/xml" class="text-blue-500 underline">XML</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h2 class="text-xl font-semibold">Curl Examples:</h2>
+                <pre class="bg-gray-200 p-2 rounded mt-2">
+curl http://ip.filterid.com/ip/text
+curl http://ip.filterid.com/ip/json
+curl http://ip.filterid.com/ip/xml
+                </pre>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
